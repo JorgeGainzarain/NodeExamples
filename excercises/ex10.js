@@ -136,22 +136,26 @@ function loginTerminal(db) {
         console.log('\n\n\n\nManual login test');
 
 
-        rl.on('message', async (msg) => {
+        rl.on('line', async (msg) => {
             switch(msg.toLocaleLowerCase()) {
                 case 'login' :
                     let username = await rl.question('Enter your username: ')
                     let password = await rl.question('Enter your password: ')
                     let data = await login(username, password, db)
+                    if(data) {
+                        console.log(data)
+                    }
+                    break;
+
+                case 'quit' :
+                    rl.close();
                     break;
 
                 default:
                     console.log("Command not recognized");
             }
 
-            let response = await rl.question('Press Enter to continue or write quit to exit:');
-            if(response.toLowerCase() === 'quit') {
-                rl.close();
-            }
+            await rl.question('\nPress Enter to continue...');
         })
     })
 }
