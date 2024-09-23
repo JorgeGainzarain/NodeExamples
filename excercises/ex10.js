@@ -129,12 +129,14 @@ async function login(username, password, db) {
 
 function loginTerminal(db) {
     return new Promise(async (resolve, reject) => {
+
         const rl = readlinePromises.createInterface({
             input: process.stdin,
             output: process.stdout,
         });
         console.log('\n\n\n\nManual login test');
 
+        console.log('Commands: \nlogin - Login with username and password\nquit - Exit the program');
 
         rl.on('line', async (msg) => {
             switch(msg.toLocaleLowerCase()) {
@@ -156,6 +158,9 @@ function loginTerminal(db) {
             }
 
             await rl.question('\nPress Enter to continue...');
+            rl.
+
+            console.log('Commands: \nlogin - Login with username and password\nquit - Exit the program');
         })
     })
 }
