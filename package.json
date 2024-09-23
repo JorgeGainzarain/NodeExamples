@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "promised-sqlite3": "^2.1.0",
+    "readline-promise": "^1.0.5",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
