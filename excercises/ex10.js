@@ -39,7 +39,8 @@ function runSql(db, sql) {
 // Function to create tables
 async function createTables(db) {
 
-    await runSql(db, `CREATE TABLE roles (
+
+await runSql(db, `CREATE TABLE roles (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL UNIQUE
         )`
@@ -136,7 +137,7 @@ function loginTerminal(db) {
         });
         console.log('\n\n\n\nManual login test');
 
-        console.log('Commands: \nlogin - Login with username and password\nquit - Exit the program');
+        console.log('Commands: \nlogin - Login with username and password to see the data\nquit - Exit the program');
 
         rl.on('line', async (msg) => {
             switch(msg.toLocaleLowerCase()) {
@@ -157,10 +158,9 @@ function loginTerminal(db) {
                     console.log("Command not recognized");
             }
 
-            await rl.question('\nPress Enter to continue...');
-            rl.
+            await rl.question('Press Enter to continue...');
 
-            console.log('Commands: \nlogin - Login with username and password\nquit - Exit the program');
+            console.log('Commands: \nlogin - Login with username and password to see the data\nquit - Exit the program');
         })
     })
 }
